@@ -4,6 +4,10 @@ td {
   height: 80px;
 }
 
+table#board {
+  border: solid 5px black;
+}
+
 #rowA td:nth-child(odd) {
   background-color: white;
 }
