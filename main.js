@@ -41,3 +41,18 @@ console.log(test);
 
 });
 >>>>>>> 0ea2dfc654e9b9515999252d25f0f08b59d6a8eb
+
+
+
+/* 
+ * Implement into moving of pieces.
+ var clicks = 0;
+    function onClick() {
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+    };
+
+    if even, black's turn. if odd, white's turn.
+    add an onClick that disables color class once clicked.
+
+
