@@ -4,6 +4,17 @@ document.addEventListener('DOMContentLoaded', function(){  //Loads the DOM
 						['', '', '', ''],
 						['', '', '', ''],
 						["\u265F", "\u265F", "\u265F", "\u265F"]];
+
+//Give each piece it's own variable
+var wp1 = test[0][0];
+var wp2 = test[0][1];
+var wp3 = test[0][2];
+var wp4 = test[0][3];
+
+var bp1 = test[3][0];
+var bp2 = test[3][1];
+var bp3 = test[3][2];
+var bp4 = test[3][3];
 						
 // <<<<<<< HEAD
 console.log(test);
