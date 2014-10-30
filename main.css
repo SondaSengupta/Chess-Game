@@ -3,3 +3,35 @@ td {
   width: 80px;
   height: 80px;
 }
+
+#rowA td:nth-child(odd) {
+  background-color: white;
+}
+
+#rowB td:nth-child(even) {
+  background-color: white;
+}
+
+#rowC td:nth-child(odd) {
+  background-color: white;
+}
+
+#rowD td:nth-child(even) {
+  background-color: white;
+}
+
+#rowE td:nth-child(odd) {
+  background-color: white;
+}
+
+#rowF td:nth-child(even) {
+  background-color: white;
+}
+
+#rowG td:nth-child(odd) {
+  background-color: white;
+}
+#rowH td:nth-child(even) {
+  background-color: white;
+}
+
