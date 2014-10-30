@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){  //Loads the DOM
 						['', '', '', ''],
 						["\u265F", "\u265F", "\u265F", "\u265F"]];
 						
-<<<<<<< HEAD
+// <<<<<<< HEAD
 console.log(test);
 });
 =======
@@ -53,6 +53,6 @@ console.log(test);
     };
 
     if even, black's turn. if odd, white's turn.
-    add an onClick that disables color class once clicked.
+    add an onClick that disables color class once clicked
 
 
