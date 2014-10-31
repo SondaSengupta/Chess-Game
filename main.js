@@ -1,13 +1,104 @@
-var board = [ 
-  ['A1','B1','C1','D1','E1','F1','G1','H1'],
-  ['A2','B2','C2','D2','E2','F2','G2','H2'],
-  ['A3','B3','C3','D3','E3','F3','G3','H3'],
-  ['A4','B4','C4','D4','E4','F4','G4','H4'],
-  ['A5','B5','C5','D5','E5','F5','G5','H5'],
-  ['A6','B6','C6','D6','E6','F6','G6','H6'],
-  ['A7','B7','C7','D7','E7','F7','G7','H7'],
-  ['A8','B8','C8','D8','E8','F8','G8','H8'] ];
+https://github.com/jspencersharpe/Chess-Game.git//Load the DOM
+$(document).ready(function(){  //Loads the DOM
+	var test = [["\u2659", "\u2659", "\u2659", "\u2659"],
+						['', '', '', ''],
+						['', '', '', ''],
+						["\u265F", "\u265F", "\u265F", "\u265F"]];
+
+//Give each piece it's own variable
+var wp1 = test[0][0];
+var wp2 = test[0][1];
+var wp3 = test[0][2];
+var wp4 = test[0][3];
+
+var bp1 = test[3][0];
+var bp2 = test[3][1];
+var bp3 = test[3][2];
+var bp4 = test[3][3];
+						
+generateGrid(test);
+
+  function generateGrid(test){
+    var $table = $('#board');
+	$table.innerHTML = ''; // if replaced by $table.empty(); it will remove everything and give 0;
+
+    test.forEach(function(row){ // first time, row => [0, 0, 0]
+      // create a tr for the row
+      var $tr = document.createElement('tr');
+      row.forEach(function(cell){ // first time, cell => 0
+        // cell goes into a new td
+        // that td goes into a tr
+        var $td = createTableCell(cell);
+        $td.textContent = cell;
+        $tr.appendChild($td);
+        // alternative:
+        // $tr.appendChild( createTableCell(cell) );
+      });
+      // add that tr to the table
+      $table.append($tr);
+    });
+  }
+  function createTableCell(value){
+    var $td = document.createElement('td');
+    // Apply black or white class to the td
+    if(value === 1){
+      $td.classList.add('bCell');
+    } else {
+      $td.classList.add('wCell');
+    }
+    return $td;
+  } 
+ 
+
+function neighborCellCount(x, y) {
+var neighbors = 0;
+//checks its row neighbors 
+  for (var i = x-1; i <= x+1; i++) {
+    if (i < 0 || i > (test.length - 1)) {
+    }
+     else {
+//checks the cell neighbors
+  for(var j = y-1; j <= y+1; j++) {
+    if (j < 0 || j > (test[i].length - 1) || (j === y && i === x)) {
+     }
+    else {
+    if(test[i][j] === 1) {
+     neighbors += 1;
+     }
+    }
+   }
+  }
+ }
+    return neighbors;
+}
+function calculateNextState(currentState){
+    var nextState = [];
+    currentState.forEach(function(currentRow, x){
+      var nextRow = [];
+      currentRow.forEach(function(currentCell, y){
+        var nextCellState = neighborCellCount(x, y);
+        nextRow.push(nextCellState);
+      });
+      nextState.push(nextRow);
+    });
+    return nextState;
+  }
+
+//$(document).ready(function() {
+    // refresh
+    test = calculateNextState(test);
+    generateGrid(test); // if this statement removed it doesn't generate
+ 
 
 
+  // Implement into moving of pieces.
+    var clicks = 0;
+    function onClick() {
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+    }
 
+   // if even, black's turn. if odd, white's turn.
+   //add an onClick that disables color class once clicked
+});
 
