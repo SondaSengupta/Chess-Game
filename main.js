@@ -72,7 +72,6 @@ console.log(test);
 
     if even, black's turn. if odd, white's turn.
     add an onClick that disables color class once clicked
->>>>>>> bfb0d53a35cbd1df5e9933e8886ab544041a9663
 
   function generateGrid(test){
     var $table = $('#board');
