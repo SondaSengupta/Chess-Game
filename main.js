@@ -56,12 +56,11 @@ document.addEventListener('DOMContentLoaded', function(){
     $(this).text();
     $(this).addClass("selectedPiece");
     var columnPosition = $(this).nextAll('td');
+    var x = 3 - columnPosition.length
     var rowPosition = $(this).parent('tr').nextAll('tr');
-    console.log((4 - columnPosition.length).toString() + ',' + (4 - rowPosition.length).toString());
-     //find the number of siblings up until the cell values
-     //find the number of siblings up until the row values
-     //print out the length of the x and y value
-
+    var y = 3 - rowPosition.length
+    var piecePosition = ('test[' + (x).toString() + ']' + '[' + (y).toString() + ']');
+    console.log(piecePosition);
       if (this.innerHTML === "\u2659"){
         console.log("This is a white pawn!");
       } else {
