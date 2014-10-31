@@ -2,7 +2,7 @@ td {
   font-size: 50px;
   text-align: center;
   color:white;
-} 
+}
 
 td {
   background-color: black;
@@ -10,8 +10,16 @@ td {
   height: 80px;
 }
 
-table#board {
+#board {
   border: solid 5px black;
+}
+
+td.bCell {
+  background-color: black;
+}
+
+td.wCell {
+  background-color: grey;
 }
 
 #rowA td:nth-child(odd) {
@@ -44,5 +52,3 @@ table#board {
 #rowH td:nth-child(even) {
   background-color: white;
 }
-
-
