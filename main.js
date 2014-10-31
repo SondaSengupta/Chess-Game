@@ -1,64 +1,55 @@
 
-https://github.com/jspencersharpe/Chess-Game.git//Load the DOM
-document.addEventListener('DOMContentLoaded', function(){  //Loads the DOM
+// at https://github.com/jspencersharpe/Chess-Game.git
+document.addEventListener('DOMContentLoaded', function(){
+  //The double array of the board
   var test = [["\u2659", "\u2659", "\u2659", "\u2659"],
             ['', '', '', ''],
             ['', '', '', ''],
             ["\u265F", "\u265F", "\u265F", "\u265F"]];
-  //Give each piece it's own variable
-var wp1 = test[0][0];
-var wp2 = test[0][1];
-var wp3 = test[0][2];
-var wp4 = test[0][3];
+  
+  //Gives each piece it's own variable
+  var wp1 = test[0][0];
+  var wp2 = test[0][1];
+  var wp3 = test[0][2];
+  var wp4 = test[0][3];
 
-var bp1 = test[3][0];
-var bp2 = test[3][1];
-var bp3 = test[3][2];
-var bp4 = test[3][3];
-            
+  var bp1 = test[3][0];
+  var bp2 = test[3][1];
+  var bp3 = test[3][2];
+  var bp4 = test[3][3];
+   
+  //Function generates the board with initial state of all the pieces          
   generateGrid(test);
   function generateGrid(test){
     var $table = document.querySelector('#board');
   $table.innerHTML = '';
-    // matrix => [0, 1, 0]
-    //           [0, 1, 1]
-    //           [0, 1, 1]
-
-    test.forEach(function(row){ // first time, row => [0, 0, 0]
-      // create a tr for the row
+    test.forEach(function(row){
       var $tr = document.createElement('tr');
-      row.forEach(function(cell){ // first time, cell => 0
-        // cell goes into a new td
-        // that td goes into a tr
+      row.forEach(function(cell){
         var $td = createTableCell(cell);
         $td.textContent = cell;
         $tr.appendChild($td);
-        // alternative:
-        // $tr.appendChild( createTableCell(cell) );
       });
-      // add that tr to the table
       $table.appendChild($tr);
     });
   }
   function createTableCell(value){
     var $td = document.createElement('td');
-    // Apply alive or dead class to the td
     return $td;
   }
 
-
-
+  //When piece is clicked, function determines which piece is selected
   $('td').click(function(){
+    $('td').removeClass("selectedPiece");
     $(this).text();
-    console.log(this.innerHTML);
+    $(this).addClass("selectedPiece");
       if (this.innerHTML === "\u2659"){
         alert("This is a white pawn!");
       } else {
-        alert("This didn't work");
       }
   });  
 
-});
+}); //end of DOMContentLoaded
 
 /*Implement into moving of pieces.
  var clicks = 0;
