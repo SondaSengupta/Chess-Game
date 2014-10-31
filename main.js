@@ -43,10 +43,19 @@ document.addEventListener('DOMContentLoaded', function(){
     $('td').removeClass("selectedPiece");
     $(this).text();
     $(this).addClass("selectedPiece");
+    var columnPosition = $(this).nextAll('td');
+    var rowPosition = $(this).parent('tr').nextAll('tr');
+    console.log((4 - columnPosition.length).toString() + ',' + (4 - rowPosition.length).toString());
+     //find the number of siblings up until the cell values
+     //find the number of siblings up until the row values
+     //print out the length of the x and y value
+
       if (this.innerHTML === "\u2659"){
-        alert("This is a white pawn!");
+        console.log("This is a white pawn!");
       } else {
+        console.log("This is not a white pawn");
       }
+
   });  
 
 }); //end of DOMContentLoaded
