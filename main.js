@@ -127,4 +127,22 @@ function calculateNextState(currentState){
     });
     return nextState;
   }
-  */
+  
+
+//////// Capturing Pieces
+
+// if statement about white pieces interfering with black pieces
+/
+var whitePieces = [wPawn1, wPawn2, wPawn3, wPawn4];
+  var whiteCaptured = [];
+  whiteCaptured = pieces.slice(1, 2)
+        // whiteCaptured contains [wPawn2]
+
+
+
+
+
+*/
+
+
+
