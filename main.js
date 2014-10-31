@@ -38,7 +38,19 @@ document.addEventListener('DOMContentLoaded', function(){
     return $td;
   }
 
+  function currentBoardState(x, y){  //Loads currentBoardState() into memory
+  var test = [];
+    for(var i = 0; i < x; i++){
+      test[i] = [];
+      for(var j = 0; j < y; j++){
+        test[i][j] = test
+      }
+    }
+    return test;
+  }
+
   //When piece is clicked, function determines which piece is selected
+  currentBoardState(4, 4);
   $('td').click(function(){
     $('td').removeClass("selectedPiece");
     $(this).text();
