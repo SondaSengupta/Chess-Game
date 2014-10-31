@@ -1,10 +1,10 @@
 
 https://github.com/jspencersharpe/Chess-Game.git//Load the DOM
 document.addEventListener('DOMContentLoaded', function(){  //Loads the DOM
-	var test = [["\u2659", "\u2659", "\u2659", "\u2659"],
-						['', '', '', ''],
-						['', '', '', ''],
-						["\u265F", "\u265F", "\u265F", "\u265F"]];
+  var test = [["\u2659", "\u2659", "\u2659", "\u2659"],
+            ['', '', '', ''],
+            ['', '', '', ''],
+            ["\u265F", "\u265F", "\u265F", "\u265F"]];
   //Give each piece it's own variable
 var wp1 = test[0][0];
 var wp2 = test[0][1];
@@ -15,11 +15,11 @@ var bp1 = test[3][0];
 var bp2 = test[3][1];
 var bp3 = test[3][2];
 var bp4 = test[3][3];
-						
+            
   generateGrid(test);
   function generateGrid(test){
     var $table = document.querySelector('#board');
-	$table.innerHTML = '';
+  $table.innerHTML = '';
     // matrix => [0, 1, 0]
     //           [0, 1, 1]
     //           [0, 1, 1]
@@ -45,6 +45,18 @@ var bp4 = test[3][3];
     // Apply alive or dead class to the td
     return $td;
   }
+
+
+
+  $('td').click(function(){
+    $(this).text();
+    console.log(this.innerHTML);
+      if (this.innerHTML === "\u2659"){
+        alert("This is a white pawn!");
+      } else {
+        alert("This didn't work");
+      }
+  });  
 
 });
 
