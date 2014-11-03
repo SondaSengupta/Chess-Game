@@ -56,18 +56,56 @@ document.addEventListener('DOMContentLoaded', function(){
     $(this).text();
     $(this).addClass("selectedPiece");
     var columnPosition = $(this).nextAll('td');
-    var x = 3 - columnPosition.length
+    var y = 3 - columnPosition.length
     var rowPosition = $(this).parent('tr').nextAll('tr');
-    var y = 3 - rowPosition.length
-    var piecePosition = ('test[' + (x).toString() + ']' + '[' + (y).toString() + ']');
-    console.log(piecePosition);
-      if (this.innerHTML === "\u2659"){
-        console.log("This is a white pawn!");
+    var x = 3 - rowPosition.length
+    var currentPiecePosition = test[x][y];
+    var newPiecePosition;
+    console.log(x + ', ' + y);
+    console.log(test[x]);
+    console.log(test[x][y]);
+    
+    rules(x, y);
+    // console.log(currentPiecePosition);
+      $('td').click(function(){
+      if (currentPiecePosition === "\u2659"){
+        console.log("This is a white pawn.");
+      } else if (this.innerHTML === "\u265F"){
+        console.log("This is a black pawn.");
       } else {
-        console.log("This is not a white pawn");
+          return false;
       }
 
-  });  
+    ///////////BEGIN MOVE TESTING////////////
+    function rules(x, y){
+      if (currentPiecePosition.innerHTML === "\u2659"){
+        newPiecePosition = test[x + 1][y];
+      //highlight (test[x + 1][y])
+      //If counter of pawns variable === 0
+        //Then highlight (test[x + 1][y]) && (test[x + 2][y])
+        console.log(newPiecePosition);
+      }
+
+    return newPiecePosition;
+
+  //else if (this.innerHTML === "\u265F"){
+  //     //highlight (test[x - 1][y])
+  //       //If counter of pawns variable === 0
+  //         //Then highlight (test[x - 1][y]) && (test[x - 2][y])
+  // } else if (this.innerHTML === "\u2656"){
+  //     //highlight etc...    
+  // }
+
+    function move(){
+
+    }
+  }
+    ///////////END MOVE TESTING////////////////
+  });
+
+  ////////////////////////////////////////////////////////
+  ////$(selector).text(function(index,currentcontent))////
+  ////////////////////////////////////////////////////////  
 
 }); //end of DOMContentLoaded
 
