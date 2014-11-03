@@ -67,14 +67,14 @@ document.addEventListener('DOMContentLoaded', function(){
     
     rules(x, y);
     // console.log(currentPiecePosition);
-      $('td').click(function(){
-      if (currentPiecePosition === "\u2659"){
-        console.log("This is a white pawn.");
-      } else if (this.innerHTML === "\u265F"){
-        console.log("This is a black pawn.");
-      } else {
-          return false;
-      }
+      // $('td').click(function(){
+      // if (currentPiecePosition === "\u2659"){
+      //   console.log("This is a white pawn.");
+      // } else if (this.innerHTML === "\u265F"){
+      //   console.log("This is a black pawn.");
+      // } else {
+      //     return false;
+      // }
 
     ///////////BEGIN MOVE TESTING////////////
     function rules(x, y){
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   ////////////////////////////////////////////////////////
   ////$(selector).text(function(index,currentcontent))////
-  ////////////////////////////////////////////////////////  
+  ////////////////////////////////////////////////////////
 
 }); //end of DOMContentLoaded
 
