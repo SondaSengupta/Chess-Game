@@ -78,12 +78,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
     ///////////BEGIN MOVE TESTING////////////
     function rules(x, y){
-      if (currentPiecePosition.innerHTML === "\u2659"){
-        newPiecePosition = test[x + 1][y];
+      if (currentPiecePosition === "\u2659"){
+       var possibleMoves = [{type: currentPiecePosition, x: x + 1, y: y}, {type:currentPiecePosition, x: x+ 2, y:y}]
+       console.log(possibleMoves)
+
       //highlight (test[x + 1][y])
       //If counter of pawns variable === 0
         //Then highlight (test[x + 1][y]) && (test[x + 2][y])
-        console.log(newPiecePosition);
       }
 
     return newPiecePosition;
