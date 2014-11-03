@@ -48,7 +48,19 @@ $(document).ready(function(){
   })
 }); //end of DOMContentLoaded
     ///////////BEGIN MOVE TESTING////////////
+<<<<<<< HEAD
     
+=======
+    function rules(x, y){
+      if (currentPiecePosition === "\u2659"){
+       var possibleMoves = [{type: currentPiecePosition, x: x + 1, y: y}, {type:currentPiecePosition, x: x+ 2, y:y}]
+       console.log(possibleMoves)
+
+      //highlight (test[x + 1][y])
+      //If counter of pawns variable === 0
+        //Then highlight (test[x + 1][y]) && (test[x + 2][y])
+      }
+>>>>>>> 089e18a14a4a60404e611edbfde87ae0b449fba5
 
     // return newPiecePosition;
 
