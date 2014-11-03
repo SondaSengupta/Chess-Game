@@ -48,19 +48,7 @@ $(document).ready(function(){
   })
 }); //end of DOMContentLoaded
     ///////////BEGIN MOVE TESTING////////////
-<<<<<<< HEAD
     
-=======
-    function rules(x, y){
-      if (currentPiecePosition === "\u2659"){
-       var possibleMoves = [{type: currentPiecePosition, x: x + 1, y: y}, {type:currentPiecePosition, x: x+ 2, y:y}]
-       console.log(possibleMoves)
-
-      //highlight (test[x + 1][y])
-      //If counter of pawns variable === 0
-        //Then highlight (test[x + 1][y]) && (test[x + 2][y])
-      }
->>>>>>> 089e18a14a4a60404e611edbfde87ae0b449fba5
 
     // return newPiecePosition;
 
@@ -80,23 +68,24 @@ $(document).ready(function(){
 
 
 
-  function generateGrid(test){
-    var $table = document.querySelector('#board');
-  $table.innerHTML = '';
-    test.forEach(function(row){
-      var $tr = document.createElement('tr');
-      row.forEach(function(cell){
-        var $td = createTableCell(cell);
-        $td.textContent = cell;
-        $tr.appendChild($td);
-      });
-      $table.appendChild($tr);
+function generateGrid(test){
+  var $table = document.querySelector('#board');
+$table.innerHTML = '';
+  test.forEach(function(row){
+    var $tr = document.createElement('tr');
+    row.forEach(function(cell){
+      var $td = createTableCell(cell);
+      $td.textContent = cell;
+      $tr.appendChild($td);
     });
-  }
-  function createTableCell(value){
-    var $td = document.createElement('td');
-    return $td;
-  }
+    $table.appendChild($tr);
+  });
+}
+
+function createTableCell(value){
+  var $td = document.createElement('td');
+  return $td;
+}
 
 //Loads currentBoardState() into memory
 function currentBoardState(x, y){
@@ -111,21 +100,21 @@ return test;
 
 function rules(x, y){
   var currentPiecePosition = test[x][y];
-      if (currentPiecePosition === "\u2659"){
-        possibleMoves = [{x:x+1, y:y}];
-      //highlight (possibleMoves)
-      //If counter of pawns variable === 0
-        //Then highlight (test[x + 1][y]) && (test[x + 2][y])
-        console.log(possibleMoves.type);
-        highlightPossibleMoves(possibleMoves.x, possibleMoves.y);
-    }
+  if (currentPiecePosition === "\u2659"){
+    possibleMoves = [{x:x+1, y:y}];
+  //highlight (possibleMoves)
+  //If counter of pawns variable === 0
+    //Then highlight (test[x + 1][y]) && (test[x + 2][y])
+    console.log(possibleMoves[0]);
+  }
 }
-    function highlightPossibleMoves() {
-      $('td').removeClass("possibleMoves");
-      possibleMoves.forEach(function(highlight){
-      $('td').addClass("possibleMoves");
-      });
-    }
+
+function highlightPossibleMoves() {
+  $('td').removeClass("possibleMoves");
+  possibleMoves.forEach(function(highlight){
+  $('td').addClass("possibleMoves");
+  });
+}
 
 /*Implement into moving of pieces.
  var clicks = 0;
