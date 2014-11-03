@@ -36,37 +36,8 @@ $(document).ready(function(){
     // console.log(test[x][y]);
 
     possibleMoves = rules(x, y);
-    // console.log(currentPiecePosition);
-      // $('td').click(function(){
-      // if (currentPiecePosition === "\u2659"){
-      //   console.log("This is a white pawn.");
-      // } else if (this.innerHTML === "\u265F"){
-      //   console.log("This is a black pawn.");
-      // } else {
-      //     return false;
-      // }
   })
-}); //end of DOMContentLoaded
-    ///////////BEGIN MOVE TESTING////////////
-    
-
-    // return newPiecePosition;
-
-  //else if (this.innerHTML === "\u265F"){
-  //     //highlight (test[x - 1][y])
-  //       //If counter of pawns variable === 0
-  //         //Then highlight (test[x - 1][y]) && (test[x - 2][y])
-  // } else if (this.innerHTML === "\u2656"){
-  //     //highlight etc...    
-  // }
-
-  
-
-  ////////////////////////////////////////////////////////
-  ////$(selector).text(function(index,currentcontent))////
-  ////////////////////////////////////////////////////////
-
-
+}); //end of DOMContentLoaded    
 
 function generateGrid(test){
   var $table = document.querySelector('#board');
@@ -105,11 +76,15 @@ function rules(x, y){
   //highlight (possibleMoves)
   //If counter of pawns variable === 0
     //Then highlight (test[x + 1][y]) && (test[x + 2][y])
-    console.log(possibleMoves[0]);
+    console.log(possibleMoves[0].x, possibleMoves[0].y);
+    highlightPossibleMoves(possibleMoves[0].x, possibleMoves[0].y);
   }
 }
 
 function highlightPossibleMoves() {
+  var x = possibleMoves[0].x;
+  var y = possibleMoves[0].y;
+  console.log(x, y);
   $('td').removeClass("possibleMoves");
   possibleMoves.forEach(function(highlight){
   $('td').addClass("possibleMoves");
@@ -131,4 +106,3 @@ var whitePieces = [wPawn1, wPawn2, wPawn3, wPawn4];
   var whiteCaptured = [];
   whiteCaptured = pieces.slice(1, 2)
         // whiteCaptured contains [wPawn2]
-*/
