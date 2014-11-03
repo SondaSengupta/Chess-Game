@@ -16,6 +16,10 @@ td {
   color:blue;
 }
 
+.possibleMoves {
+  background: rgba(0, 255, 0, 0.2);
+}
+
 #board {
   border: solid 5px black;
 }
@@ -25,7 +29,7 @@ td.bCell {
 }
 
 td.wCell {
-  background-color: grey;
+  background-color: gray;
 }
 
 #board tr:nth-child(odd) td:nth-child(odd) {
