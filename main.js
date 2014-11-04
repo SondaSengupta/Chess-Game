@@ -1,3 +1,4 @@
+// at https://github.com/jspencersharpe/Chess-Game.git
 var board = [
 [{symbol: '\u2656', selected: 0, highlighted: 0, color: 'white', type: 'rook'},
 {symbol: '\u2658', selected: 0, highlighted: 0, color: 'white', type: 'knight'},
@@ -64,34 +65,25 @@ var board = [
 {symbol: '\u265E', selected: 0, highlighted: 0, color: 'black', type: 'knight'},
 {symbol: '\u265C', selected: 0, highlighted: 0, color: 'black', type: 'rook'}]];
 
-// at https://github.com/jspencersharpe/Chess-Game.git
-$(document).ready(function(){   
-  //Function generates the board with initial state of all the pieces        
-  generateGrid(board);
-
-  //When piece is clicked, function determines which piece is selected
-  currentBoardState(8, 8);
-  $('td').click(function(){
-  $('td').removeClass("selectedPiece");
-  $(this).text();
-  $(this).addClass("selectedPiece");
-  var columnPosition = $(this).nextAll('td');
-  var y = 7 - columnPosition.length;
-  var rowPosition = $(this).parent('tr').nextAll('tr');
-  var x = 7 - rowPosition.length;
-  // board[x][y].selected === 1;
-  console.log(x + ', ' + y);
-  // console.log(board[x]);
-  console.log(board[x][y]);
-  var possibleMoves = rules(x, y);
-  })
-  // $('td').click(function(){
-  //   $('td').removeClass("possibleMoves");
-    
-  // })
+$(document).ready(function(){   //Loads DOM
+  generateGrid(board);  //Generates board with initial state of all the pieces  
+  currentBoardState(8, 8); //When piece is clicked, piece and location determined
+    $('td').click(function(){
+    $('td').removeClass("selectedPiece");
+    $(this).text();
+    $(this).addClass("selectedPiece");
+    var columnPosition = $(this).nextAll('td');
+    var y = 7 - columnPosition.length;
+    var rowPosition = $(this).parent('tr').nextAll('tr');
+    var x = 7 - rowPosition.length;
+    // board[x][y].selected === 1;
+    console.log(x + ', ' + y);
+    console.log(board[x][y]);
+    var possibleMoves = rules(x, y);
+    })
 }); //end of DOMContentLoaded    
 
-function generateGrid(board){
+function generateGrid(board){ //Creates initial board of pieces 
   var $table = document.querySelector('#board');
 $table.innerHTML = '';
   board.forEach(function(row){
@@ -104,48 +96,44 @@ $table.innerHTML = '';
   $table.appendChild($tr);
   });
 }
-
-function createTableCell(value){
+function createTableCell(value){ //Creates each cell on the board
   var $td = document.createElement('td');
   return $td;
 }
 
-//Loads currentBoardState() into memory
-function currentBoardState(x, y){
+function currentBoardState(x, y){ //Loads currentBoardState() into memory
   var board = [];
   for(var i = 0; i < x; i++){
   board[i] = [];
   for(var j = 0; j < y; j++){
     board[i][j] = board}
   }
-return board;
+  return board;
 }
 
-function rules(x, y){
+function rules(x, y){ //Implements rules to know which cells need highlighting
   if (board[x][y].symbol === "\u2659"){
     posX = x + 1;
     posY = y;
     console.log(posX, posY)
     board[posX][posY].highlighted = 1; 
     console.log(board[posX][posY])
-    if (board[posX][posY].highlighted == 1){
-      $('td').addClass("possibleMoves");
-    }
   }
+  highlightPossibleMoves(posX,posY);
+}
+
+function highlightPossibleMoves(posX, posY) {
+   if (board[posX][posY].highlighted === 1){
+      $('td').addClass("possibleMoves"); //highlights possible moves
+  }
+}
+
   //highlight (possibleMoves)
   //If counter of pawns variable === 0
   //Then highlight (test[x + 1][y]) && (test[x + 2][y])
   // console.log(possibleMoves[0]);
   //.log(possibleMoves);
   //highlightPossibleMoves(possibleMoves);
-}
-
-function highlightPossibleMoves(array) {
-  $('td').removeClass("possibleMoves");
-  // for(var i = 0, i < 0; i++){
-  $('td').addClass("possibleMoves");
-  // }
-}
 
 /*Implement into moving of pieces.
  var clicks = 0;
@@ -163,4 +151,3 @@ var whitePieces = [wPawn1, wPawn2, wPawn3, wPawn4];
   whiteCaptured = pieces.slice(1, 2)
       // whiteCaptured contains [wPawn2]
 */
-
