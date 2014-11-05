@@ -12,11 +12,6 @@ td {
   height: 80px;
 }
 
-.possibleMoves td {
-  background-color: yellow;
-  z-index: 10;
-}
-
 .selectedPiece {
   color:blue;
 }
@@ -33,10 +28,14 @@ td.wCell {
   background-color: gray;
 }
 
-#board tr:nth-child(odd) td:nth-child(odd) {
+table tr:nth-child(odd) td:nth-child(odd) {
   background-color: white;
 }
 
-#board tr:nth-child(even) td:nth-child(even) {
+table tr:nth-child(even) td:nth-child(even) {
   background-color: white;
+}
+
+#board .possibleMoves {
+  background-color: yellow;
 }

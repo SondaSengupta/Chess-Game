@@ -67,32 +67,37 @@ var board = [
 
 $(document).ready(function(){   //Loads DOM
   generateGrid(board);  //Generates board with initial state of all the pieces  
-  currentBoardState(8, 8); //When piece is clicked, piece and location determined
-    $('td').click(function(){
-    $('td').removeClass("selectedPiece");
-    $(this).text();
-    $(this).addClass("selectedPiece");
-    var columnPosition = $(this).nextAll('td');
-    var y = 7 - columnPosition.length;
-    var rowPosition = $(this).parent('tr').nextAll('tr');
-    var x = 7 - rowPosition.length;
-    // board[x][y].selected === 1;
-    console.log(x + ', ' + y);
-    console.log(board[x][y]);
-    var possibleMoves = rules(x, y);
+  //currentBoardState(8, 8); //When piece is clicked, piece and location determined
+    $('body').on('click', 'td', function(){
+      $('td').removeClass("selectedPiece","possibleMoves");
+      $(this).addClass("selectedPiece");
+      var columnPosition = $(this).nextAll('td');
+      var y = 7 - columnPosition.length;
+      var rowPosition = $(this).parent('tr').nextAll('tr');
+      var x = 7 - rowPosition.length;
+      // board[x][y].selected === 1;
+      console.log(x + ', ' + y);
+      console.log(board[x][y]);
+      rules(x, y);
+      generateGrid(board);
+      console.log(board);
+      console.log(newBoard);
     })
 }); //end of DOMContentLoaded    
 
 function generateGrid(board){ //Creates initial board of pieces 
-  var $table = document.querySelector('#board');
-$table.innerHTML = '';
-  board.forEach(function(row){
+  var $table = document.querySelector('#board'); // $('#board')
+  $table.innerHTML = '';
+  board.forEach(function(row, i){
   var $tr = document.createElement('tr');
-  row.forEach(function(cell){
-    var $td = createTableCell(cell);
-    $td.textContent = cell.symbol;
-    $tr.appendChild($td);
-  });
+    row.forEach(function(cell, j){
+      var $td = createTableCell(cell);
+      $td.textContent = cell.symbol;
+       if (board[i][j].highlighted === 1){
+            $td.classList.add("possibleMoves");
+        }
+      $tr.appendChild($td);
+    });
   $table.appendChild($tr);
   });
 }
@@ -101,32 +106,42 @@ function createTableCell(value){ //Creates each cell on the board
   return $td;
 }
 
-function currentBoardState(x, y){ //Loads currentBoardState() into memory
-  var board = [];
-  for(var i = 0; i < x; i++){
-  board[i] = [];
-  for(var j = 0; j < y; j++){
-    board[i][j] = board}
-  }
-  return board;
-}
+// function currentBoardState(x, y){ //Loads currentBoardState() into memory
+//   var board = [];
+//   for(var i = 0; i < x; i++){
+//   board[i] = [];
+//   for(var j = 0; j < y; j++){
+//     board[i][j] = board}
+//   }
+//   return board;
+// }
 
 function rules(x, y){ //Implements rules to know which cells need highlighting
+ $td.classList.remove("possibleMoves"); 
   if (board[x][y].symbol === "\u2659"){
     posX = x + 1;
     posY = y;
-    console.log(posX, posY)
+    //console.log(posX, posY)
     board[posX][posY].highlighted = 1; 
-    console.log(board[posX][posY])
+    //console.log(board[posX][posY])
   }
-  highlightPossibleMoves(posX,posY);
+  //highlightPossibleMoves(posX,posY);
 }
 
-function highlightPossibleMoves(posX, posY) {
-   if (board[posX][posY].highlighted === 1){
-      $('td').addClass("possibleMoves"); //highlights possible moves
-  }
-}
+//function highlightPossibleMoves(posX, posY) {
+  // function calculateNextState(board){
+  //   var nextState = [];
+  //   board.forEach(function(currentRow, x){
+  //     var nextRow = [];
+  //     currentRow.forEach(function(currentCell, y){
+  //     nextRow.push(currentCell);
+  //     });
+  //     nextState.push(nextRow);
+  //   });
+
+  //   return nextState;
+  // }
+//}
 
   //highlight (possibleMoves)
   //If counter of pawns variable === 0
