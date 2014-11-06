@@ -1,23 +1,18 @@
 td {
   font-size: 50px;
   text-align: center;
-  color:green;
+  color: black;
   border: double 1px black;
 }
 
 td {
-  background-color: black;
-  width: 80px;
-  height: 80px;
+  background-color: gray;
+  width: 70px;
+  height: 70px;
 }
-
 
 .selectedPiece {
-  color:blue;
-}
-
-.possibleMoves {
-  background: rgba(0, 255, 0, 0.2);
+  color: blue;
 }
 
 #board {
@@ -32,10 +27,14 @@ td.wCell {
   background-color: gray;
 }
 
-#board tr:nth-child(odd) td:nth-child(odd) {
+table tr:nth-child(odd) td:nth-child(odd) {
   background-color: white;
 }
 
-#board tr:nth-child(even) td:nth-child(even) {
+table tr:nth-child(even) td:nth-child(even) {
   background-color: white;
+}
+
+#board .possibleMoves {
+  background-color: rgba(0, 255, 0, 0.2);
 }
